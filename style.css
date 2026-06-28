@@ -33,15 +33,10 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-.product img{
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:10px;
-    display:block;
-    margin-bottom:15px;
-}
-
 .product{
+    background:white;
+    border-radius:12px;
+    padding:20px;
     text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
