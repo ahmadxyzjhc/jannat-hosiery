@@ -27,3 +27,9 @@ const products = [
     description: "Comfortable cotton socks."
 }
 ];
+{
+    name: "Shampoo",
+    image: "shampoo.jpg",
+    category: "Hair Care",
+    description: "Healthy hair shampoo."
+}
