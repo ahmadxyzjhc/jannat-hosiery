@@ -1,104 +1,85 @@
-// ===============================
-// WHATSAPP NUMBER
-// ===============================
+// ======================================
+// JANNAT HOSIERY & COSMETICS
+// script.js
+// ======================================
 
+// Replace with your WhatsApp number
 const phone = "917006694870";
+
 let selectedCategory = "All";
 
-// ===============================
-// WHATSAPP
-// ===============================
+// ======================================
+// OPEN WHATSAPP
+// ======================================
 
-function askPrice(productName){
+function askPrice(productName) {
 
     const message =
-    "Hello! I want to know the price of " + productName;
+        "Hello! I want to know the price of " + productName;
 
-    window.open(
+    const url =
         "https://wa.me/" + phone +
-        "?text=" + encodeURIComponent(message),
-        "_blank"
-    );
+        "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
 
 }
 
-// ===============================
+// ======================================
 // DISPLAY PRODUCTS
-// ===============================
+// ======================================
 
-function displayProducts(productList){
+function displayProducts(productList) {
 
     const container = document.getElementById("products");
 
     container.innerHTML = "";
 
-    if(productList.length===0){
+    if (productList.length === 0) {
 
         container.innerHTML = `
-        <div class="col-12 text-center">
-
-        <h3>No Products Found</h3>
-
-        </div>
+            <div class="col-12 text-center">
+                <h3>No Products Found</h3>
+            </div>
         `;
 
         return;
-
     }
 
-    productList.forEach(product=>{
+    productList.forEach(product => {
 
         container.innerHTML += `
 
-<div class="col-lg-3 col-md-4 col-sm-6">
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
 
 <div class="product-card position-relative">
 
-<span class="badge-custom">
+<span class="badge-custom">${product.badge}</span>
 
-${product.badge}
+<div class="wishlist">❤</div>
 
-</span>
-
-<div class="wishlist">
-
-❤
-
-</div>
-
-<img
-src="${product.image}"
-class="img-fluid">
+<img src="${product.image}" class="img-fluid" alt="${product.name}">
 
 <div class="product-body">
 
 <div class="product-brand">
-
 ${product.brand}
-
 </div>
 
 <h5 class="product-title">
-
 ${product.name}
-
 </h5>
 
 <div class="product-rating">
-
 ⭐ ${product.rating}
-
 </div>
 
 <p class="product-description">
-
 ${product.description}
-
 </p>
 
 <button
 class="btn btn-success w-100 rounded-pill"
-
 onclick="askPrice('${product.name}')">
 
 Ask Price
@@ -117,124 +98,105 @@ Ask Price
 
 }
 
-// ===============================
-// CATEGORY BUTTONS
-// ===============================
+// ======================================
+// LOAD CATEGORIES
+// ======================================
 
-function loadCategories(){
+function loadCategories() {
 
-const box=document.getElementById("categories");
+    const box = document.getElementById("categories");
 
-box.innerHTML="";
+    if (!box) return;
 
-const count={};
+    box.innerHTML = "";
 
-products.forEach(product=>{
+    const categoryCount = {};
 
-count[product.category]=(count[product.category]||0)+1;
+    products.forEach(product => {
 
-});
+        categoryCount[product.category] =
+            (categoryCount[product.category] || 0) + 1;
 
-box.innerHTML+=`
+    });
 
-<button
-class="btn btn-outline-danger"
+    box.innerHTML +=
+        `<button class="btn btn-outline-danger"
+        onclick="filterCategory('All')">
+        All (${products.length})
+        </button>`;
 
-onclick="filterCategory('All')">
+    Object.keys(categoryCount).forEach(category => {
 
-All (${products.length})
+        box.innerHTML +=
+            `<button class="btn btn-outline-danger"
+            onclick="filterCategory('${category}')">
+            ${category} (${categoryCount[category]})
+            </button>`;
 
-</button>
-
-`;
-
-Object.keys(count).forEach(category=>{
-
-box.innerHTML+=`
-
-<button
-class="btn btn-outline-danger"
-
-onclick="filterCategory('${category}')">
-
-${category}
-
-(${count[category]})
-
-</button>
-
-`;
-
-});
+    });
 
 }
 
-// ===============================
-// CATEGORY FILTER
-// ===============================
+// ======================================
+// FILTER CATEGORY
+// ======================================
 
-function filterCategory(category){
+function filterCategory(category) {
 
-selectedCategory=category;
+    selectedCategory = category;
 
-updateProducts();
+    updateProducts();
 
 }
 
-// ===============================
+// ======================================
 // SEARCH
-// ===============================
+// ======================================
 
-function updateProducts(){
+function updateProducts() {
 
-const search=document
+    const searchBox = document.getElementById("search");
 
-.getElementById("search")
+    const search = searchBox
+        ? searchBox.value.toLowerCase()
+        : "";
 
-.value
+    const filtered = products.filter(product => {
 
-.toLowerCase();
+        const matchesCategory =
+            selectedCategory === "All" ||
+            product.category === selectedCategory;
 
-const filtered=products.filter(product=>{
+        const matchesSearch =
+            product.name.toLowerCase().includes(search) ||
+            product.brand.toLowerCase().includes(search) ||
+            product.category.toLowerCase().includes(search) ||
+            product.description.toLowerCase().includes(search);
 
-const searchMatch=
+        return matchesCategory && matchesSearch;
 
-product.name.toLowerCase().includes(search)||
+    });
 
-product.brand.toLowerCase().includes(search)||
-
-product.category.toLowerCase().includes(search)||
-
-product.description.toLowerCase().includes(search);
-
-const categoryMatch=
-
-selectedCategory==="All"||
-
-product.category===selectedCategory;
-
-return searchMatch&&categoryMatch;
-
-});
-
-displayProducts(filtered);
+    displayProducts(filtered);
 
 }
 
-// ===============================
+// ======================================
 // START WEBSITE
-// ===============================
+// ======================================
 
-window.onload=function(){
+document.addEventListener("DOMContentLoaded", () => {
 
-loadCategories();
+    loadCategories();
 
-displayProducts(products);
+    displayProducts(products);
 
-document
+    const searchBox = document.getElementById("search");
 
-.getElementById("search")
+    if (searchBox) {
 
-.addEventListener("input",updateProducts);
+        searchBox.addEventListener("input", updateProducts);
 
-};
+    }
+
+});
