@@ -6,12 +6,12 @@ const products = [
         description: "Premium quality face wash for healthy skin."
     },
 
-    {
-        name: "Lipstick",
-        image: "https://via.placeholder.com/250x250?text=Lipstick",
-        category: "Makeup",
-        description: "Long-lasting lipstick in beautiful shades."
-    },
+   {
+    name: "Lipstick",
+    image: "https://via.placeholder.com/250x250?text=Lipstick",
+    category: "Makeup",
+    description: "Long-lasting lipstick."
+}
 
     {
         name: "Perfume",
