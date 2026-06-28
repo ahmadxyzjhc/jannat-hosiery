@@ -2,116 +2,184 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Jannat Hosiery & Cosmetics</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVIGATION BAR
-    ========================== -->
+<!-- ================= NAVBAR ================= -->
 
-    <header>
+<header>
 
-        <div class="navbar">
+    <div class="navbar">
 
-            <div class="logo">
-                Jannat Hosiery & Cosmetics
-            </div>
+        <div class="logo">
+            Jannat Hosiery & Cosmetics
+        </div>
 
-            <div class="search-box">
-                <input
-                    type="text"
-                    id="search"
-                    placeholder="🔍 Search products...">
-            </div>
+        <div class="search-box">
 
-            <nav>
-
-                <a href="#">Home</a>
-
-                <a href="#products-section">Products</a>
-
-                <a href="#contact">Contact</a>
-
-            </nav>
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search products...">
 
         </div>
 
-        <!-- Hero Section -->
+        <nav>
 
-        <div class="hero">
+            <a href="index.html">Home</a>
 
-            <h1>Welcome to Jannat Hosiery & Cosmetics</h1>
+            <a href="products.html">Products</a>
+
+            <a href="about.html">About</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <h1>Welcome to Jannat Hosiery & Cosmetics</h1>
+
+    <p>
+        Beauty • Hosiery • Cosmetics • Personal Care
+    </p>
+
+    <button onclick="window.location='products.html'">
+        Shop Now
+    </button>
+
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Shop By Category
+    </h2>
+
+    <div class="categories">
+
+        <button onclick="window.location='products.html'">
+            Cosmetics
+        </button>
+
+        <button onclick="window.location='products.html'">
+            Skin Care
+        </button>
+
+        <button onclick="window.location='products.html'">
+            Hair Care
+        </button>
+
+        <button onclick="window.location='products.html'">
+            Hosiery
+        </button>
+
+        <button onclick="window.location='products.html'">
+            Fragrance
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURED PRODUCTS ================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Featured Products
+    </h2>
+
+    <div id="products" class="product-grid"></div>
+
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Why Choose Us?
+    </h2>
+
+    <div class="product-grid">
+
+        <div class="product">
+
+            <h2>✔ Genuine Products</h2>
 
             <p>
-                Beauty • Hosiery • Cosmetics • Personal Care
+                We provide original beauty, cosmetics and hosiery products.
             </p>
-
-            <button onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})">
-
-                Browse Products
-
-            </button>
 
         </div>
 
-    </header>
+        <div class="product">
 
-    <!-- =========================
-         PRODUCTS
-    ========================== -->
+            <h2>💬 Easy WhatsApp Inquiry</h2>
 
-    <section class="container" id="products-section">
+            <p>
+                Ask for prices instantly through WhatsApp.
+            </p>
 
-        <h2 class="section-title">
+        </div>
 
-            Featured Products
+        <div class="product">
 
-        </h2>
+            <h2>🚚 Fast Service</h2>
 
-        <!-- Categories generated automatically -->
+            <p>
+                Quick response and excellent customer support.
+            </p>
 
-        <div id="categories" class="categories"></div>
+        </div>
 
-        <!-- Products generated automatically -->
+    </div>
 
-        <div id="products" class="product-grid"></div>
+</section>
 
-    </section>
+<!-- ================= FOOTER ================= -->
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+<footer>
 
-    <footer id="contact">
+    <h2>Jannat Hosiery & Cosmetics</h2>
 
-        <h2>Contact Us</h2>
+    <p>📍 Your Shop Address</p>
 
-        <p>📍 Jannat Hosiery & Cosmetics</p>
+    <p>📞 WhatsApp: +91 XXXXXXXXXX</p>
 
-        <p>📞 WhatsApp: +91 XXXXXXXXXX</p>
+    <p>📧 your@email.com</p>
 
-        <p>📧 Email: your@email.com</p>
+    <br>
 
-        <p>
-            © 2026 Jannat Hosiery & Cosmetics.
-            All Rights Reserved.
-        </p>
+    <p>
+        © 2026 Jannat Hosiery & Cosmetics.
+        All Rights Reserved.
+    </p>
 
-    </footer>
+</footer>
 
-    <!-- Load product data first -->
+<script src="products.js"></script>
 
-    <script src="products.js"></script>
-
-    <!-- Website functionality -->
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 
