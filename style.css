@@ -1,12 +1,5 @@
-/* ===========================
-   GOOGLE FONT
-=========================== */
-
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-/* ===========================
-   RESET
-=========================== */
 
 *{
     margin:0;
@@ -15,288 +8,159 @@
     font-family:'Poppins',sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:#f7f8fc;
-    color:#333;
+    background:#f8f9fa;
 }
 
-/* ===========================
-   NAVBAR
-=========================== */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.navbar{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:18px 6%;
-
-    background:white;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-
-}
-
-.logo{
-
-    font-size:28px;
-
-    font-weight:700;
-
-    color:#ff4d6d;
-
-}
-
-.search-box input{
-
-    width:330px;
-
-    padding:13px 18px;
-
-    border-radius:40px;
-
-    border:1px solid #ddd;
-
-    outline:none;
-
-    transition:.3s;
-
-}
-
-.search-box input:focus{
-
-    border-color:#ff4d6d;
-
-    box-shadow:0 0 8px rgba(255,77,109,.25);
-
-}
-
-nav{
-
-    display:flex;
-
-    gap:25px;
-
-}
-
-nav a{
-
-    text-decoration:none;
-
-    color:#444;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-nav a:hover{
-
-    color:#ff4d6d;
-
-}
-
-/* ===========================
-   HERO
-=========================== */
+/* ================= HERO ================= */
 
 .hero{
-
     background:linear-gradient(135deg,#ff4d6d,#ff758f);
-
     color:white;
-
-    text-align:center;
-
-    padding:110px 20px;
-
+    padding:120px 20px;
 }
 
 .hero h1{
-
-    font-size:58px;
-
-    margin-bottom:20px;
-
+    font-size:3.2rem;
+    font-weight:700;
 }
 
 .hero p{
-
-    font-size:22px;
-
-    margin-bottom:35px;
-
+    font-size:1.2rem;
+    margin:20px 0 35px;
 }
 
-.hero button{
+/* ================= NAVBAR ================= */
 
-    background:white;
+.navbar-brand{
+    color:#ff4d6d !important;
+}
 
-    color:#ff4d6d;
+.nav-link{
+    font-weight:600;
+}
+
+.nav-link:hover{
+    color:#ff4d6d !important;
+}
+
+/* ================= CATEGORY BUTTON ================= */
+
+#categories button{
 
     border:none;
 
-    padding:16px 40px;
-
-    border-radius:50px;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.hero button:hover{
-
-    transform:translateY(-3px);
-
-}
-
-/* ===========================
-   SECTION
-=========================== */
-
-.container{
-
-    width:92%;
-
-    max-width:1400px;
-
-    margin:70px auto;
-
-}
-
-.section-title{
-
-    text-align:center;
-
-    font-size:38px;
-
-    margin-bottom:40px;
-
-}
-
-/* ===========================
-   CATEGORY BUTTONS
-=========================== */
-
-.categories{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    margin-bottom:45px;
-
-}
-
-.categories button{
-
     background:white;
-
-    border:2px solid #ff4d6d;
 
     color:#ff4d6d;
 
-    padding:12px 28px;
+    padding:12px 25px;
 
-    border-radius:40px;
-
-    cursor:pointer;
-
-    font-size:15px;
+    border-radius:50px;
 
     font-weight:600;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 
     transition:.3s;
 
 }
 
-.categories button:hover{
+#categories button:hover{
 
     background:#ff4d6d;
 
     color:white;
 
-}
-
-/* ===========================
-   PRODUCTS
-=========================== */
-
-.product-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
+    transform:translateY(-3px);
 
 }
 
-.product{
+/* ================= PRODUCT CARD ================= */
+
+.product-card{
 
     background:white;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    padding:25px;
+    overflow:hidden;
 
-    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
 
-    position:relative;
+    transition:.3s;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.35s;
+    height:100%;
 
 }
 
-.product:hover{
+.product-card:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 
 }
 
-.product img{
+.product-card img{
 
-    width:190px;
-
-    height:190px;
+    height:220px;
 
     object-fit:contain;
 
-    transition:.35s;
+    padding:20px;
+
+    transition:.3s;
 
 }
 
-.product:hover img{
+.product-card:hover img{
 
-    transform:scale(1.08);
+    transform:scale(1.05);
 
 }
 
-.badge{
+.product-body{
+
+    padding:20px;
+
+}
+
+.product-brand{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+.product-rating{
+
+    color:#ffc107;
+
+    font-weight:bold;
+
+}
+
+.product-title{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    margin-top:10px;
+
+}
+
+.product-description{
+
+    color:#666;
+
+    margin:15px 0;
+
+    min-height:55px;
+
+}
+
+.badge-custom{
 
     position:absolute;
 
@@ -308,9 +172,9 @@ nav a:hover{
 
     color:white;
 
-    padding:6px 12px;
+    padding:8px 12px;
 
-    border-radius:20px;
+    border-radius:30px;
 
     font-size:12px;
 
@@ -320,137 +184,45 @@ nav a:hover{
 
     position:absolute;
 
-    right:18px;
+    right:15px;
 
-    top:18px;
+    top:15px;
 
-    font-size:24px;
-
-    cursor:pointer;
-
-}
-
-.brand{
-
-    display:block;
-
-    color:#777;
-
-    margin-top:15px;
-
-}
-
-.rating{
-
-    color:#f7b500;
-
-    margin:10px 0;
-
-    font-weight:600;
-
-}
-
-.product p{
-
-    color:#666;
-
-    margin:15px 0;
-
-    min-height:50px;
-
-}
-
-.product button{
-
-    background:#25D366;
-
-    color:white;
-
-    border:none;
-
-    padding:12px 24px;
-
-    border-radius:30px;
+    font-size:22px;
 
     cursor:pointer;
 
-    font-size:15px;
-
-    font-weight:600;
+    color:#bbb;
 
 }
 
-.product button:hover{
+.wishlist:hover{
 
-    background:#1daa55;
+    color:red;
 
 }
 
-/* ===========================
-   FOOTER
-=========================== */
+/* ================= FOOTER ================= */
 
 footer{
 
-    background:#222;
-
-    color:white;
-
-    text-align:center;
-
-    padding:60px 20px;
+    margin-top:80px;
 
 }
 
-footer h2{
+/* ================= MOBILE ================= */
 
-    margin-bottom:20px;
-
-}
-
-footer p{
-
-    margin:10px 0;
-
-}
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media(max-width:900px){
-
-.navbar{
-
-    flex-direction:column;
-
-    gap:20px;
-
-}
-
-.search-box input{
-
-    width:100%;
-
-}
+@media(max-width:768px){
 
 .hero h1{
 
-    font-size:38px;
+font-size:2.2rem;
 
 }
 
-.hero p{
+.hero{
 
-    font-size:18px;
-
-}
-
-.product img{
-
-    width:150px;
-
-    height:150px;
+padding:80px 20px;
 
 }
 
