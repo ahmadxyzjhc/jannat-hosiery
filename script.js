@@ -1,65 +1,69 @@
-// ==========================
-// WHATSAPP NUMBER
-// ==========================
+// ===========================
+// WHATSAPP
+// ===========================
 
 const phone = "91XXXXXXXXXX"; // Replace with your number
 
-// ==========================
+// ===========================
 // VARIABLES
-// ==========================
+// ===========================
 
 let selectedCategory = "All";
 
-// ==========================
+// ===========================
 // WHATSAPP
-// ==========================
+// ===========================
 
-function askPrice(productName) {
+function askPrice(productName){
 
-    const message = "Hello! I want to know the price of " + productName;
+    const message =
+    "Hello! I want to know the price of " + productName;
 
     window.open(
-        "https://wa.me/" + phone + "?text=" + encodeURIComponent(message),
+        "https://wa.me/" + phone +
+        "?text=" + encodeURIComponent(message),
         "_blank"
     );
 
 }
 
-// ==========================
+// ===========================
 // DISPLAY PRODUCTS
-// ==========================
+// ===========================
 
-function displayProducts(list) {
+function displayProducts(list){
 
-    const container = document.getElementById("products");
+    const container =
+    document.getElementById("products");
 
-    container.innerHTML = "";
+    container.innerHTML="";
 
-    if (list.length === 0) {
+    if(list.length===0){
 
-        container.innerHTML = `
-        <h2 style="text-align:center;width:100%;">
-        No products found
-        </h2>
-        `;
+        container.innerHTML=
+        "<h2>No products found.</h2>";
 
         return;
+
     }
 
-    list.forEach(product => {
+    list.forEach(product=>{
 
-        container.innerHTML += `
+        container.innerHTML+=`
 
         <div class="product">
 
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image}">
 
             <h2>${product.name}</h2>
 
             <p>${product.description}</p>
 
-            <button onclick="askPrice('${product.name}')">
-                Ask for Price
+            <button
+            onclick="askPrice('${product.name}')">
+
+            Ask for Price
+
             </button>
 
         </div>
@@ -70,34 +74,97 @@ function displayProducts(list) {
 
 }
 
-// ==========================
-// SEARCH + CATEGORY
-// ==========================
+// ===========================
+// AUTO CATEGORY BUTTONS
+// ===========================
 
-function updateProducts() {
+function loadCategories(){
 
-    const search = document
-        .getElementById("search")
-        .value
-        .toLowerCase();
+    const box =
+    document.getElementById("categories");
 
-    const filtered = products.filter(product => {
+    box.innerHTML="";
 
-        const matchesSearch =
+    const categoryCount={};
 
-            product.name.toLowerCase().includes(search) ||
+    products.forEach(product=>{
 
-            product.category.toLowerCase().includes(search) ||
+        categoryCount[product.category]=
+        (categoryCount[product.category]||0)+1;
 
-            product.description.toLowerCase().includes(search);
+    });
 
-        const matchesCategory =
+    box.innerHTML+=`
+    <button onclick="filterCategory('All')">
+    All (${products.length})
+    </button>
+    `;
 
-            selectedCategory === "All" ||
+    Object.keys(categoryCount).forEach(cat=>{
 
-            product.category === selectedCategory;
+        box.innerHTML+=`
 
-        return matchesSearch && matchesCategory;
+        <button onclick="filterCategory('${cat}')">
+
+        ${cat}
+        (${categoryCount[cat]})
+
+        </button>
+
+        `;
+
+    });
+
+}
+
+// ===========================
+// FILTER
+// ===========================
+
+function filterCategory(category){
+
+    selectedCategory=category;
+
+    updateProducts();
+
+}
+
+// ===========================
+// SEARCH
+// ===========================
+
+function updateProducts(){
+
+    const search=
+
+    document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+    const filtered=
+
+    products.filter(product=>{
+
+        const searchMatch=
+
+        product.name.toLowerCase().includes(search)||
+
+        product.description
+        .toLowerCase()
+        .includes(search)||
+
+        product.category
+        .toLowerCase()
+        .includes(search);
+
+        const categoryMatch=
+
+        selectedCategory==="All"||
+
+        product.category===selectedCategory;
+
+        return searchMatch&&categoryMatch;
 
     });
 
@@ -105,28 +172,18 @@ function updateProducts() {
 
 }
 
-// ==========================
-// CATEGORY
-// ==========================
+// ===========================
+// START
+// ===========================
 
-function filterCategory(category) {
+window.onload=function(){
 
-    selectedCategory = category;
-
-    updateProducts();
-
-}
-
-// ==========================
-// START WEBSITE
-// ==========================
-
-window.onload = function () {
+    loadCategories();
 
     displayProducts(products);
 
     document
-        .getElementById("search")
-        .addEventListener("input", updateProducts);
+    .getElementById("search")
+    .addEventListener("input",updateProducts);
 
 };
