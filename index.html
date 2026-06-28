@@ -5,98 +5,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jannat Hosiery & Cosmetics</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
 
-<div class="navbar">
+    <header>
 
-<div class="logo">
-Jannat Hosiery & Cosmetics
-</div>
+        <div class="navbar">
 
-<div class="search-box">
-<input
-type="text"
-id="search"
-placeholder="Search products...">
-</div>
+            <div class="logo">
+                Jannat Hosiery & Cosmetics
+            </div>
 
-<nav>
-<a href="#">Home</a>
-<a href="#products-section">Products</a>
-<a href="#contact">Contact</a>
-</nav>
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="🔍 Search products...">
+            </div>
 
-</div>
+            <nav>
 
-<div class="hero">
+                <a href="#">Home</a>
 
-<h1>Welcome to Jannat Hosiery & Cosmetics</h1>
+                <a href="#products-section">Products</a>
 
-<p>Beauty • Hosiery • Cosmetics • Personal Care</p>
+                <a href="#contact">Contact</a>
 
-<button onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})">
-Browse Products
-</button>
+            </nav>
 
-</div>
+        </div>
 
-</header>
+        <!-- Hero Section -->
 
-<section class="container" id="products-section">
+        <div class="hero">
 
-<h2 class="section-title">
-Featured Products
-</h2>
+            <h1>Welcome to Jannat Hosiery & Cosmetics</h1>
 
-<div class="categories">
+            <p>
+                Beauty • Hosiery • Cosmetics • Personal Care
+            </p>
 
-<button onclick="filterCategory('All')">All</button>
+            <button onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})">
 
-<button onclick="filterCategory('Skin Care')">
-Skin Care
-</button>
+                Browse Products
 
-<button onclick="filterCategory('Makeup')">
-Makeup
-</button>
+            </button>
 
-<button onclick="filterCategory('Fragrance')">
-Fragrance
-</button>
+        </div>
 
-<button onclick="filterCategory('Hair Care')">
-Hair Care
-</button>
+    </header>
 
-<button onclick="filterCategory('Hosiery')">
-Hosiery
-</button>
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
 
-</div>
+    <section class="container" id="products-section">
 
-<div id="products" class="product-grid"></div>
+        <h2 class="section-title">
 
-</section>
+            Featured Products
 
-<footer id="contact">
+        </h2>
 
-<h2>Contact Us</h2>
+        <!-- Categories generated automatically -->
 
-<p>📍 Jannat Hosiery & Cosmetics</p>
+        <div id="categories" class="categories"></div>
 
-<p>📞 WhatsApp: +91 XXXXXXXXXX</p>
+        <!-- Products generated automatically -->
 
-<p>© 2026 Jannat Hosiery & Cosmetics</p>
+        <div id="products" class="product-grid"></div>
 
-</footer>
+    </section>
 
-<script src="products.js"></script>
-<script src="script.js"></script>
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>📍 Jannat Hosiery & Cosmetics</p>
+
+        <p>📞 WhatsApp: +91 XXXXXXXXXX</p>
+
+        <p>📧 Email: your@email.com</p>
+
+        <p>
+            © 2026 Jannat Hosiery & Cosmetics.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <!-- Load product data first -->
+
+    <script src="products.js"></script>
+
+    <!-- Website functionality -->
+
+    <script src="script.js"></script>
 
 </body>
 
