@@ -33,3 +33,15 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+.product img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    display:block;
+    margin-bottom:15px;
+}
+
+.product{
+    text-align:center;
+}
