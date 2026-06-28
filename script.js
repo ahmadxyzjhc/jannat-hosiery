@@ -2,7 +2,7 @@
 // WHATSAPP NUMBER
 // ===============================
 
-const phone = "91XXXXXXXXXX"; // Replace with your number
+const phone = "91XXXXXXXXXX"; // Replace with your real number
 
 let selectedCategory = "All";
 
@@ -27,59 +27,92 @@ function askPrice(productName){
 // DISPLAY PRODUCTS
 // ===============================
 
-function displayProducts(list){
+function displayProducts(productList){
 
-    const container=document.getElementById("products");
+    const container = document.getElementById("products");
 
-    container.innerHTML="";
+    container.innerHTML = "";
 
-    if(list.length===0){
+    if(productList.length===0){
 
-        container.innerHTML="<h2>No products found.</h2>";
+        container.innerHTML = `
+        <div class="col-12 text-center">
+
+        <h3>No Products Found</h3>
+
+        </div>
+        `;
 
         return;
 
     }
 
-    list.forEach(product=>{
+    productList.forEach(product=>{
 
-        container.innerHTML+=`
+        container.innerHTML += `
 
-        <div class="product">
+<div class="col-lg-3 col-md-4 col-sm-6">
 
-            <div class="badge">
-                ${product.badge}
-            </div>
+<div class="product-card position-relative">
 
-            <div class="wishlist">
-                ❤
-            </div>
+<span class="badge-custom">
 
-            <img src="${product.image}" alt="${product.name}">
+${product.badge}
 
-            <small class="brand">
-                ${product.brand}
-            </small>
+</span>
 
-            <h2>${product.name}</h2>
+<div class="wishlist">
 
-            <div class="rating">
+❤
 
-                ⭐ ${product.rating}
+</div>
 
-            </div>
+<img
+src="${product.image}"
+class="img-fluid">
 
-            <p>${product.description}</p>
+<div class="product-body">
 
-            <button onclick="askPrice('${product.name}')">
+<div class="product-brand">
 
-                Ask for Price
+${product.brand}
 
-            </button>
+</div>
 
-        </div>
+<h5 class="product-title">
 
-        `;
+${product.name}
+
+</h5>
+
+<div class="product-rating">
+
+⭐ ${product.rating}
+
+</div>
+
+<p class="product-description">
+
+${product.description}
+
+</p>
+
+<button
+class="btn btn-success w-100 rounded-pill"
+
+onclick="askPrice('${product.name}')">
+
+Ask Price
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
 
     });
 
@@ -91,49 +124,61 @@ function displayProducts(list){
 
 function loadCategories(){
 
-    const box=document.getElementById("categories");
+const box=document.getElementById("categories");
 
-    box.innerHTML="";
+box.innerHTML="";
 
-    const count={};
+const count={};
 
-    products.forEach(product=>{
+products.forEach(product=>{
 
-        count[product.category]=(count[product.category]||0)+1;
+count[product.category]=(count[product.category]||0)+1;
 
-    });
+});
 
-    box.innerHTML+=`
-    <button onclick="filterCategory('All')">
-    All (${products.length})
-    </button>
-    `;
+box.innerHTML+=`
 
-    Object.keys(count).forEach(category=>{
+<button
+class="btn btn-outline-danger"
 
-        box.innerHTML+=`
+onclick="filterCategory('All')">
 
-        <button onclick="filterCategory('${category}')">
+All (${products.length})
 
-        ${category} (${count[category]})
+</button>
 
-        </button>
+`;
 
-        `;
+Object.keys(count).forEach(category=>{
 
-    });
+box.innerHTML+=`
+
+<button
+class="btn btn-outline-danger"
+
+onclick="filterCategory('${category}')">
+
+${category}
+
+(${count[category]})
+
+</button>
+
+`;
+
+});
 
 }
 
 // ===============================
-// FILTER
+// CATEGORY FILTER
 // ===============================
 
 function filterCategory(category){
 
-    selectedCategory=category;
+selectedCategory=category;
 
-    updateProducts();
+updateProducts();
 
 }
 
@@ -143,49 +188,54 @@ function filterCategory(category){
 
 function updateProducts(){
 
-    const text=document
-    .getElementById("search")
-    .value
-    .toLowerCase();
+const search=document
 
-    const filtered=products.filter(product=>{
+.getElementById("search")
 
-        const searchMatch=
+.value
 
-        product.name.toLowerCase().includes(text)||
+.toLowerCase();
 
-        product.category.toLowerCase().includes(text)||
+const filtered=products.filter(product=>{
 
-        product.brand.toLowerCase().includes(text)||
+const searchMatch=
 
-        product.description.toLowerCase().includes(text);
+product.name.toLowerCase().includes(search)||
 
-        const categoryMatch=
+product.brand.toLowerCase().includes(search)||
 
-        selectedCategory==="All"||
+product.category.toLowerCase().includes(search)||
 
-        product.category===selectedCategory;
+product.description.toLowerCase().includes(search);
 
-        return searchMatch&&categoryMatch;
+const categoryMatch=
 
-    });
+selectedCategory==="All"||
 
-    displayProducts(filtered);
+product.category===selectedCategory;
+
+return searchMatch&&categoryMatch;
+
+});
+
+displayProducts(filtered);
 
 }
 
 // ===============================
-// START
+// START WEBSITE
 // ===============================
 
 window.onload=function(){
 
-    loadCategories();
+loadCategories();
 
-    displayProducts(products);
+displayProducts(products);
 
-    document
-    .getElementById("search")
-    .addEventListener("input",updateProducts);
+document
+
+.getElementById("search")
+
+.addEventListener("input",updateProducts);
 
 };
