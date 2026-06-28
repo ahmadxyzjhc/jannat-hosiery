@@ -1,4 +1,10 @@
 /* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
    RESET
 =========================== */
 
@@ -6,7 +12,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 html{
@@ -14,7 +20,7 @@ html{
 }
 
 body{
-    background:#f5f5f5;
+    background:#f7f8fc;
     color:#333;
 }
 
@@ -22,49 +28,84 @@ body{
    NAVBAR
 =========================== */
 
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 40px;
-    background:#fff;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
+header{
     position:sticky;
     top:0;
     z-index:1000;
 }
 
+.navbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 6%;
+
+    background:white;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
 .logo{
+
     font-size:28px;
-    font-weight:bold;
+
+    font-weight:700;
+
     color:#ff4d6d;
+
 }
 
 .search-box input{
+
     width:330px;
-    padding:12px 18px;
+
+    padding:13px 18px;
+
+    border-radius:40px;
+
     border:1px solid #ddd;
-    border-radius:30px;
+
     outline:none;
+
+    transition:.3s;
+
 }
 
 .search-box input:focus{
+
     border-color:#ff4d6d;
+
+    box-shadow:0 0 8px rgba(255,77,109,.25);
+
 }
 
 nav{
+
     display:flex;
+
     gap:25px;
+
 }
 
 nav a{
+
     text-decoration:none;
-    color:#333;
-    font-weight:bold;
+
+    color:#444;
+
+    font-weight:600;
+
+    transition:.3s;
+
 }
 
 nav a:hover{
+
     color:#ff4d6d;
+
 }
 
 /* ===========================
@@ -72,46 +113,83 @@ nav a:hover{
 =========================== */
 
 .hero{
+
     background:linear-gradient(135deg,#ff4d6d,#ff758f);
+
     color:white;
+
     text-align:center;
-    padding:80px 20px;
+
+    padding:110px 20px;
+
 }
 
 .hero h1{
-    font-size:48px;
+
+    font-size:58px;
+
+    margin-bottom:20px;
+
 }
 
 .hero p{
-    margin:20px 0;
-    font-size:20px;
+
+    font-size:22px;
+
+    margin-bottom:35px;
+
 }
 
 .hero button{
+
     background:white;
+
     color:#ff4d6d;
+
     border:none;
-    padding:15px 35px;
-    border-radius:30px;
+
+    padding:16px 40px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:600;
+
     cursor:pointer;
-    font-size:17px;
-    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.hero button:hover{
+
+    transform:translateY(-3px);
+
 }
 
 /* ===========================
-   CONTAINER
+   SECTION
 =========================== */
 
 .container{
+
     width:92%;
+
     max-width:1400px;
-    margin:50px auto;
+
+    margin:70px auto;
+
 }
 
 .section-title{
+
     text-align:center;
-    margin-bottom:35px;
-    font-size:36px;
+
+    font-size:38px;
+
+    margin-bottom:40px;
+
 }
 
 /* ===========================
@@ -119,152 +197,193 @@ nav a:hover{
 =========================== */
 
 .categories{
+
     display:flex;
-    flex-wrap:wrap;
+
     justify-content:center;
-    gap:12px;
-    margin-bottom:40px;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:45px;
+
 }
 
 .categories button{
-    border:2px solid #ff4d6d;
+
     background:white;
+
+    border:2px solid #ff4d6d;
+
     color:#ff4d6d;
-    padding:10px 20px;
-    border-radius:30px;
+
+    padding:12px 28px;
+
+    border-radius:40px;
+
     cursor:pointer;
-    font-weight:bold;
+
+    font-size:15px;
+
+    font-weight:600;
+
     transition:.3s;
+
 }
 
 .categories button:hover{
+
     background:#ff4d6d;
+
     color:white;
+
 }
 
 /* ===========================
-   PRODUCT GRID
+   PRODUCTS
 =========================== */
 
 .product-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
     gap:30px;
+
 }
 
-/* ===========================
-   PRODUCT CARD
-=========================== */
-
 .product{
+
     background:white;
-    border-radius:18px;
-    padding:20px;
+
+    border-radius:20px;
+
+    padding:25px;
+
     text-align:center;
+
     position:relative;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
 }
 
 .product:hover{
-    transform:translateY(-8px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+    transform:translateY(-10px);
+
 }
 
 .product img{
-    width:180px;
-    height:180px;
+
+    width:190px;
+
+    height:190px;
+
     object-fit:contain;
-    transition:.3s;
+
+    transition:.35s;
+
 }
 
 .product:hover img{
+
     transform:scale(1.08);
+
 }
 
-.product h2{
-    margin-top:18px;
-    margin-bottom:10px;
+.badge{
+
+    position:absolute;
+
+    left:15px;
+
+    top:15px;
+
+    background:#ff4d6d;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+}
+
+.wishlist{
+
+    position:absolute;
+
+    right:18px;
+
+    top:18px;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+.brand{
+
+    display:block;
+
+    color:#777;
+
+    margin-top:15px;
+
+}
+
+.rating{
+
+    color:#f7b500;
+
+    margin:10px 0;
+
+    font-weight:600;
+
 }
 
 .product p{
+
     color:#666;
+
     margin:15px 0;
-    line-height:1.5;
+
+    min-height:50px;
+
 }
-
-/* ===========================
-   BADGE
-=========================== */
-
-.badge{
-    position:absolute;
-    top:15px;
-    left:15px;
-    background:#ff4d6d;
-    color:white;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-/* ===========================
-   WISHLIST
-=========================== */
-
-.wishlist{
-    position:absolute;
-    top:15px;
-    right:15px;
-    font-size:24px;
-    cursor:pointer;
-    color:#bbb;
-    transition:.3s;
-}
-
-.wishlist:hover{
-    color:red;
-}
-
-/* ===========================
-   BRAND
-=========================== */
-
-.brand{
-    display:block;
-    color:#888;
-    font-size:14px;
-    margin-top:15px;
-}
-
-/* ===========================
-   RATING
-=========================== */
-
-.rating{
-    color:#ff9800;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-/* ===========================
-   BUTTON
-=========================== */
 
 .product button{
+
     background:#25D366;
+
     color:white;
+
     border:none;
-    padding:12px 22px;
+
+    padding:12px 24px;
+
     border-radius:30px;
+
     cursor:pointer;
+
     font-size:15px;
-    font-weight:bold;
+
+    font-weight:600;
+
 }
 
 .product button:hover{
-    background:#1da851;
+
+    background:#1daa55;
+
 }
 
 /* ===========================
@@ -272,15 +391,27 @@ nav a:hover{
 =========================== */
 
 footer{
-    margin-top:70px;
+
     background:#222;
+
     color:white;
+
     text-align:center;
-    padding:50px 20px;
+
+    padding:60px 20px;
+
+}
+
+footer h2{
+
+    margin-bottom:20px;
+
 }
 
 footer p{
+
     margin:10px 0;
+
 }
 
 /* ===========================
@@ -290,25 +421,37 @@ footer p{
 @media(max-width:900px){
 
 .navbar{
+
     flex-direction:column;
+
     gap:20px;
+
 }
 
 .search-box input{
+
     width:100%;
+
 }
 
 .hero h1{
-    font-size:34px;
+
+    font-size:38px;
+
 }
 
 .hero p{
+
     font-size:18px;
+
 }
 
 .product img{
+
     width:150px;
+
     height:150px;
+
 }
 
 }
