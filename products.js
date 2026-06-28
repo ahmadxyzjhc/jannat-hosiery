@@ -1,51 +1,58 @@
 const products = [
+
 {
+    id: 1,
     name: "Face Wash",
-    image: "facewash.jpg",
-    category: "Skin Care",
     brand: "Himalaya",
+    category: "Skin Care",
+    image: "images/products/facewash.jpg",
     rating: 4.8,
-    badge: "New",
+    badge: "Best Seller",
     description: "Premium quality face wash for healthy skin."
 },
 
 {
+    id: 2,
     name: "Lipstick",
-    image: "lipstick.jpg",
-    category: "Makeup",
     brand: "Lakme",
+    category: "Makeup",
+    image: "images/products/lipstick.jpg",
     rating: 4.7,
-    badge: "Best Seller",
-    description: "Long-lasting lipstick."
-},
-
-{
-    name: "Perfume",
-    image: "https://via.placeholder.com/250x250?text=Perfume",
-    category: "Fragrance",
-    brand: "Fogg",
-    rating: 4.5,
-    badge: "Popular",
-    description: "Long-lasting fragrance."
-},
-
-{
-    name: "Socks",
-    image: "https://via.placeholder.com/250x250?text=Socks",
-    category: "Hosiery",
-    brand: "Jannat",
-    rating: 4.6,
     badge: "New",
-    description: "Comfortable cotton socks."
+    description: "Long-lasting lipstick with rich color."
 },
 
 {
-    name: "Shampoo",
-    image: "https://via.placeholder.com/250x250?text=Shampoo",
-    category: "Hair Care",
-    brand: "Dove",
+    id: 3,
+    name: "Perfume",
+    brand: "Fogg",
+    category: "Fragrance",
+    image: "images/products/perfume.jpg",
     rating: 4.9,
+    badge: "Popular",
+    description: "Long-lasting fragrance for everyday use."
+},
+
+{
+    id: 4,
+    name: "Shampoo",
+    brand: "Dove",
+    category: "Hair Care",
+    image: "images/products/shampoo.jpg",
+    rating: 4.6,
     badge: "Best Seller",
-    description: "Healthy hair shampoo."
+    description: "Healthy hair shampoo for daily use."
+},
+
+{
+    id: 5,
+    name: "Socks",
+    brand: "VIP",
+    category: "Hosiery",
+    image: "images/products/socks.jpg",
+    rating: 4.5,
+    badge: "Hot",
+    description: "Comfortable cotton socks for everyday wear."
 }
+
 ];
