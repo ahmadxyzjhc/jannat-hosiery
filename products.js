@@ -8,7 +8,9 @@ const products = [
 
    {
     name: "Lipstick",
-    image: "https://via.placeholder.com/250x250?text=Lipstick",
+    image: "{
+    name: "Lipstick",
+    image: "lipstick.jpg",
     category: "Makeup",
     description: "Long-lasting lipstick."
 }
