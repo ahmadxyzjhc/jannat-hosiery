@@ -1,26 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<<link rel="stylesheet" href="style.css">>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jannat Hosiery & Cosmetics</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Welcome to Jannat Hosiery & Cosmetics</h1>
+    <header>
+        <h1>Jannat Hosiery & Cosmetics</h1>
+        <p>Your One-Stop Shop for Hosiery, Cosmetics & Personal Care Products</p>
+    </header>
 
-<p>Your one-stop shop for Hosiery, Cosmetics & Personal Care Products.</p>
+    <div class="container">
 
-<h2>Featured Products</h2>
+        <div class="product">
+            <h2>Face Wash</h2>
+            <p>Premium quality face wash for healthy skin.</p>
+            <button onclick="askPrice('Face Wash')">Ask for Price</button>
+        </div>
 
-<ul>
-    <li>Face Wash <button>Ask for Price</button></li>
-    <li>Lipstick <button>Ask for Price</button></li>
-    <li>Perfume <button>Ask for Price</button></li>
-    <li>Socks <button>Ask for Price</button></li>
-</ul>
+        <div class="product">
+            <h2>Lipstick</h2>
+            <p>Long-lasting lipstick in beautiful shades.</p>
+            <button onclick="askPrice('Lipstick')">Ask for Price</button>
+        </div>
 
-<p>📞 WhatsApp: +91 XXXXXXXXXX</p>
+        <div class="product">
+            <h2>Perfume</h2>
+            <p>Long-lasting fragrance for everyday use.</p>
+            <button onclick="askPrice('Perfume')">Ask for Price</button>
+        </div>
+
+        <div class="product">
+            <h2>Socks</h2>
+            <p>Comfortable and durable socks for all ages.</p>
+            <button onclick="askPrice('Socks')">Ask for Price</button>
+        </div>
+
+    </div>
+
+    <footer style="text-align:center;padding:20px;">
+        <p>📞 WhatsApp: +91XXXXXXXXXX</p>
+        <p>&copy; 2026 Jannat Hosiery & Cosmetics. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
