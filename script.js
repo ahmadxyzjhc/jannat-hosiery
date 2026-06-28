@@ -1,18 +1,14 @@
-// ===========================
-// WHATSAPP
-// ===========================
+// ===============================
+// WHATSAPP NUMBER
+// ===============================
 
 const phone = "91XXXXXXXXXX"; // Replace with your number
 
-// ===========================
-// VARIABLES
-// ===========================
-
 let selectedCategory = "All";
 
-// ===========================
+// ===============================
 // WHATSAPP
-// ===========================
+// ===============================
 
 function askPrice(productName){
 
@@ -27,21 +23,19 @@ function askPrice(productName){
 
 }
 
-// ===========================
+// ===============================
 // DISPLAY PRODUCTS
-// ===========================
+// ===============================
 
 function displayProducts(list){
 
-    const container =
-    document.getElementById("products");
+    const container=document.getElementById("products");
 
     container.innerHTML="";
 
     if(list.length===0){
 
-        container.innerHTML=
-        "<h2>No products found.</h2>";
+        container.innerHTML="<h2>No products found.</h2>";
 
         return;
 
@@ -53,16 +47,33 @@ function displayProducts(list){
 
         <div class="product">
 
-            <img src="${product.image}">
+            <div class="badge">
+                ${product.badge}
+            </div>
+
+            <div class="wishlist">
+                ❤
+            </div>
+
+            <img src="${product.image}" alt="${product.name}">
+
+            <small class="brand">
+                ${product.brand}
+            </small>
 
             <h2>${product.name}</h2>
 
+            <div class="rating">
+
+                ⭐ ${product.rating}
+
+            </div>
+
             <p>${product.description}</p>
 
-            <button
-            onclick="askPrice('${product.name}')">
+            <button onclick="askPrice('${product.name}')">
 
-            Ask for Price
+                Ask for Price
 
             </button>
 
@@ -74,23 +85,21 @@ function displayProducts(list){
 
 }
 
-// ===========================
-// AUTO CATEGORY BUTTONS
-// ===========================
+// ===============================
+// CATEGORY BUTTONS
+// ===============================
 
 function loadCategories(){
 
-    const box =
-    document.getElementById("categories");
+    const box=document.getElementById("categories");
 
     box.innerHTML="";
 
-    const categoryCount={};
+    const count={};
 
     products.forEach(product=>{
 
-        categoryCount[product.category]=
-        (categoryCount[product.category]||0)+1;
+        count[product.category]=(count[product.category]||0)+1;
 
     });
 
@@ -100,14 +109,13 @@ function loadCategories(){
     </button>
     `;
 
-    Object.keys(categoryCount).forEach(cat=>{
+    Object.keys(count).forEach(category=>{
 
         box.innerHTML+=`
 
-        <button onclick="filterCategory('${cat}')">
+        <button onclick="filterCategory('${category}')">
 
-        ${cat}
-        (${categoryCount[cat]})
+        ${category} (${count[category]})
 
         </button>
 
@@ -117,9 +125,9 @@ function loadCategories(){
 
 }
 
-// ===========================
+// ===============================
 // FILTER
-// ===========================
+// ===============================
 
 function filterCategory(category){
 
@@ -129,34 +137,28 @@ function filterCategory(category){
 
 }
 
-// ===========================
+// ===============================
 // SEARCH
-// ===========================
+// ===============================
 
 function updateProducts(){
 
-    const search=
-
-    document
+    const text=document
     .getElementById("search")
     .value
     .toLowerCase();
 
-    const filtered=
-
-    products.filter(product=>{
+    const filtered=products.filter(product=>{
 
         const searchMatch=
 
-        product.name.toLowerCase().includes(search)||
+        product.name.toLowerCase().includes(text)||
 
-        product.description
-        .toLowerCase()
-        .includes(search)||
+        product.category.toLowerCase().includes(text)||
 
-        product.category
-        .toLowerCase()
-        .includes(search);
+        product.brand.toLowerCase().includes(text)||
+
+        product.description.toLowerCase().includes(text);
 
         const categoryMatch=
 
@@ -172,9 +174,9 @@ function updateProducts(){
 
 }
 
-// ===========================
+// ===============================
 // START
-// ===========================
+// ===============================
 
 window.onload=function(){
 
