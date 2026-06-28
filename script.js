@@ -1,37 +1,52 @@
-// =========================
+// ==========================
 // WHATSAPP NUMBER
-// =========================
+// ==========================
 
-const phone = "91XXXXXXXXXX"; // Replace with your real WhatsApp number
+const phone = "91XXXXXXXXXX"; // Replace with your number
 
-// =========================
-// CURRENT PRODUCTS
-// =========================
+// ==========================
+// VARIABLES
+// ==========================
 
-let currentProducts = [...products];
+let selectedCategory = "All";
 
-// =========================
-// LOAD PRODUCTS
-// =========================
+// ==========================
+// WHATSAPP
+// ==========================
 
-function loadProducts(productList = currentProducts) {
+function askPrice(productName) {
+
+    const message = "Hello! I want to know the price of " + productName;
+
+    window.open(
+        "https://wa.me/" + phone + "?text=" + encodeURIComponent(message),
+        "_blank"
+    );
+
+}
+
+// ==========================
+// DISPLAY PRODUCTS
+// ==========================
+
+function displayProducts(list) {
 
     const container = document.getElementById("products");
 
     container.innerHTML = "";
 
-    if (productList.length === 0) {
+    if (list.length === 0) {
 
         container.innerHTML = `
-            <h2 style="text-align:center;width:100%;">
-                No products found.
-            </h2>
+        <h2 style="text-align:center;width:100%;">
+        No products found
+        </h2>
         `;
 
         return;
     }
 
-    productList.forEach(product => {
+    list.forEach(product => {
 
         container.innerHTML += `
 
@@ -55,78 +70,63 @@ function loadProducts(productList = currentProducts) {
 
 }
 
-// =========================
-// WHATSAPP BUTTON
-// =========================
+// ==========================
+// SEARCH + CATEGORY
+// ==========================
 
-function askPrice(productName){
+function updateProducts() {
 
-    const message =
-    "Hello! I want to know the price of " + productName;
+    const search = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
 
-    window.open(
-        "https://wa.me/" + phone + "?text=" + encodeURIComponent(message),
-        "_blank"
-    );
+    const filtered = products.filter(product => {
 
-}
+        const matchesSearch =
 
-// =========================
-// SEARCH
-// =========================
+            product.name.toLowerCase().includes(search) ||
 
-const searchBox = document.getElementById("search");
+            product.category.toLowerCase().includes(search) ||
 
-searchBox.addEventListener("keyup", function(){
+            product.description.toLowerCase().includes(search);
 
-    const text = searchBox.value.toLowerCase();
+        const matchesCategory =
 
-    const filtered = products.filter(product =>
+            selectedCategory === "All" ||
 
-        product.name.toLowerCase().includes(text) ||
+            product.category === selectedCategory;
 
-        product.category.toLowerCase().includes(text) ||
+        return matchesSearch && matchesCategory;
 
-        product.description.toLowerCase().includes(text)
+    });
 
-    );
-
-    currentProducts = filtered;
-
-    loadProducts(filtered);
-
-});
-
-// =========================
-// CATEGORY FILTER
-// =========================
-
-function filterCategory(category){
-
-    if(category==="All"){
-
-        currentProducts=[...products];
-
-        loadProducts(products);
-
-        return;
-
-    }
-
-    const filtered = products.filter(product =>
-
-        product.category===category
-
-    );
-
-    currentProducts = filtered;
-
-    loadProducts(filtered);
+    displayProducts(filtered);
 
 }
 
-// =========================
+// ==========================
+// CATEGORY
+// ==========================
+
+function filterCategory(category) {
+
+    selectedCategory = category;
+
+    updateProducts();
+
+}
+
+// ==========================
 // START WEBSITE
-// =========================
+// ==========================
 
-loadProducts();
+window.onload = function () {
+
+    displayProducts(products);
+
+    document
+        .getElementById("search")
+        .addEventListener("input", updateProducts);
+
+};
