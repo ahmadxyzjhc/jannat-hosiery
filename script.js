@@ -2,8 +2,7 @@
 // WHATSAPP NUMBER
 // ===============================
 
-const phone = "91XXXXXXXXXX"; // Replace with your real number
-
+const phone = "917006694870";
 let selectedCategory = "All";
 
 // ===============================
